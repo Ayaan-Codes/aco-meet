@@ -1,188 +1,251 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <script src='acomeet.js'></script>
-    <style>
-        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700italic);
-
-*{margin: 0px; padding: 0px}
-
-body{
-  background:#2c3e50;
-  font-family: 'Open Sans', sans-serif;
-}
-
-h1, button{
-  color:#fff;
-  text-align: center;
-  padding: 20px;
-}
-
-p{
-  color:#fff;
-  text-align: center;
-  padding-top: 500px;
-  font-size: 10px;
-}
-
-a{
-   text-decoration:none;
-   color:#fff;
-}
-
-a:hover{
-   color:black;
-}
-
-.main{
-  width: 100%;
-}
-
-.sub-main{
-  width: 30%;
-  margin:22px;
-  float: left;
-}
-
-.button-one, .button-two, .button-three{
-  text-align: center;
-  cursor: pointer;
-  font-size:24px;
-  margin: 0 0 0 100px;
-}
-
-
-
-/*Button One*/
-.button-one {
-  padding:20px 60px;
-  outline: none;
-  background-color: #27ae60;
-  border: none;
-  border-radius:5px;
-  box-shadow: 0 9px #95a5a6;
-}
-
-.button-one:hover{
-  background-color: #2ecc71;
-}
-
-.button-one:active {
-  background-color: #2ecc71;
-  box-shadow: 0 5px #95a5a6;
-  transform: translateY(4px);
-}
-
-
-/*Button Two*/
-.button-two {
-  border-radius: 4px;
-  background-color:#d35400;
-  border: none;
-  padding: 20px;
-  width: 200px;
-  transition: all 0.5s;
-}
-
-
-.button-two span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button-two span:after {
-  content: '»';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button-two:hover span {
-  padding-right: 25px;
-}
-
-.button-two:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-
-/*Button Three*/
-.button-three {
-    position: relative;
-    background-color: #f39c12;
-    border: none;
-    padding: 20px;
-    width: 200px;
-    text-align: center;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    text-decoration: none;
-    overflow: hidden;
-}
-
-.button-three:hover{
-   background:#fff;
-   box-shadow:0px 2px 10px 5px #97B1BF;
-   color:#000;
-}
-
-.button-three:after {
-    content: "";
-    background: #f1c40f;
-    display: block;
-    position: absolute;
-    padding-top: 300%;
-    padding-left: 350%;
-    margin-left: -20px !important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s
-}
-
-.button-three:active:after {
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s
-}
-    </style>
-  </head>
-  <body>
-  
-  <button id="start" type="button">Start</button>
-  <div id="jitsi-container">
-  </div>
-  
-  <script>
-  var button = document.querySelector('#start');
-  var container = document.querySelector('#jitsi-container');
-  var api = null;
-  
-  button.addEventListener('click', () => {
-      var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      var stringLength = 30;
-  
-      function pickRandom() {
-      return possible[Math.floor(Math.random() * possible.length)];
-      }
-  
-  var randomString = Array.apply(null, Array(stringLength)).map(pickRandom).join('');
-  
-      var domain = "meet.jit.si";
-      var options = {
-          "roomName": randomString,
-          "parentNode": container,
-          "width": 600,
-          "height": 600,
-      };
-      api = new JitsiMeetExternalAPI(domain, options);
-  });
-  
-  </script>
-  </body>
-  </html>
+   <head>
+      <meta charset=utf-8>
+      <title>ACO Meet</title>
+      <meta name=description content="ACO Meet- UHD Video, 8K Audio, & Feature Packed!">
+      <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+      <meta itemprop=name content=Keppler>
+      <meta itemprop=description content="ACO Meet- UHD Video, 8K Audio, & Feature Packed!">
+      <meta itemprop=image content=https://i.ibb.co/qj2WdNt/aco-meet-your-place.png>
+      <meta name=twitter:card content=summary_large_image>
+      <meta name=twitter:title content=ACO Meet>
+      <meta name=twitter:description content="ACO Meet- UHD Video, 8K Audio, & Feature Packed!">
+      <meta name=twitter:image content=https://i.ibb.co/qj2WdNt/aco-meet-your-place.png>
+      <meta property=og:title content=ACO Meet>
+      <meta property=og:url content=https://brunosimon.github.io/keppler/ >
+      <meta property=og:site_name content=ACO>
+      <meta property=og:type content=website>
+      <meta property=og:description content="ACO Meet- UHD Video, 8K Audio, & Feature Packed!">
+      <meta property=og:image content=https://i.ibb.co/qj2WdNt/aco-meet-your-place.png>
+      <link rel=apple-touch-icon sizes=180x180 href=static/images/favicons/apple-touch-icon.png>
+      <link rel=icon type=image/png sizes=32x32 href=static/images/favicons/favicon-32x32.png>
+      <link rel=icon type=image/png sizes=16x16 href=static/images/favicons/favicon-16x16.png>
+      <link rel=manifest href=static/images/favicons/manifest.json>
+      <link rel=mask-icon href=static/images/favicons/safari-pinned-tab.svg color=#330867>
+      <meta name=apple-mobile-web-app-title content=ACO Meet>
+      <meta name=application-name content=ACO Meet>
+      <meta name=theme-color content=#ffffff>
+      <link href=https://brunosimon.github.io//keppler/static/css/app.855dc6208bab7d7f0f88b408bd5c3a53.css rel=stylesheet>
+   </head>
+   <body>
+      <section class="section header" id=header>
+         <div class=background></div>
+         <header class=navigation><a class="item underline features js-scroll-item" href=#features>Features</a> <a class="item underline get-started js-scroll-item" href=#get-started>Get started</a> <a class="item underline whos-using-it js-scroll-item" href=#whos-using-it>Learn More</a> </header>
+         <p>ACO Meet</p>
+         <h1 class=title><span class=></span> <span class=></span> <span class=></span></h1>
+         <h2 class=sub-title>ACO  M E E T<br><br>UDH Video & NextGen Audio - For Free on ACO Meet</h2>
+         <div class="demo js-demo">
+            <div class=bars>
+               <div class="bar color-1 size-1 animation-1 pos-1"></div>
+               <div class="bar color-2 size-1 animation-2 pos-2"></div>
+               <div class="bar color-3 size-1 animation-3 pos-3"></div>
+               <div class="bar color-4 size-1 animation-4 pos-4"></div>
+               <div class="bar color-1 size-1 animation-5 pos-5"></div>
+               <div class="bar color-2 size-1 animation-6 pos-6"></div>
+               <div class="bar color-3 size-1 animation-7 pos-7"></div>
+               <div class="bar color-4 size-1 animation-8 pos-8"></div>
+               <div class="bar color-1 size-2 animation-13 pos-13"></div>
+               <div class="bar color-2 size-2 animation-14 pos-14"></div>
+               <div class="bar color-3 size-2 animation-15 pos-15"></div>
+               <div class="bar color-4 size-2 animation-16 pos-16"></div>
+               <div class="bar color-1 size-2 animation-17 pos-17"></div>
+               <div class="bar color-2 size-2 animation-18 pos-18"></div>
+               <div class="bar color-3 size-2 animation-19 pos-19"></div>
+               <div class="bar color-4 size-2 animation-20 pos-20"></div>
+               <div class="bar color-1 size-3 animation-25 pos-25"></div>
+               <div class="bar color-2 size-3 animation-26 pos-26"></div>
+               <div class="bar color-3 size-3 animation-27 pos-27"></div>
+               <div class="bar color-4 size-3 animation-28 pos-28"></div>
+               <div class="bar color-1 size-3 animation-29 pos-29"></div>
+               <div class="bar color-2 size-3 animation-30 pos-30"></div>
+               <div class="bar color-3 size-3 animation-31 pos-31"></div>
+               <div class="bar color-4 size-3 animation-32 pos-32"></div>
+            </div>
+            <div class="speaker js-speaker">
+               <div class=icon>
+                  <div class=label>Speaker</div>
+               </div>
+            </div>
+            <div class="audience js-audience">
+               <div class=icon>
+                  <div class=label>Audience</div>
+               </div>
+               <div class=white-cache></div>
+               <div class=url-bar></div>
+            </div>
+            <div class=url>http://192.168.1.13</div>
+         </div>
+         <a class="get-started-button js-scroll-item" href=#get-started><span class=out>Get started</span> <span class=hover><span class=inner>Get started</span> </span></a><a class="scroll-button js-scroll-item" href=#features><span class=mouse><span class=wheel></span></span></a>
+      </section>
+      <section class="section features" id=features>
+         <h3 class=main-title>Features</h3>
+         <div class=intro>
+            <h4 class=title>NextGen Video & Audio</h4>
+            <p class=paragraph>See clearly and be able to listen in high quality with our NextGen systems. You will be able to get 8k audio and UHD video in the free plan!</p>
+         </div>
+         <div class=info>
+            <div class=text>
+               <h4 class=title>Security</h4>
+               <p class=paragraph>It is a very rare thing in this day and age but ACO Meet uses the same security tech of every other ACO App and will keep your data and meets 100% SECURE!</p>
+            </div>
+            <div class="illustration aliens">
+               <div class="element background"></div>
+               <div class="element guy-2 levitation-2"></div>
+               <div class="element guy-1 levitation-1"></div>
+               <div class="element ship"></div>
+               <div class=system>
+                  <div class="circle index-1"></div>
+                  <div class="circle index-2"></div>
+                  <div class="circle index-3"></div>
+                  <div class="disc index-1">
+                     <div class=inner></div>
+                  </div>
+                  <div class="disc index-2">
+                     <div class=inner></div>
+                  </div>
+                  <div class="disc index-3">
+                     <div class=inner></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="info right">
+            <div class=text>
+               <h4 class=title>No app or setup needed!</h4>
+               <p class=paragraph>There is no need for an app to run ACO Meet mobile OR PC. There is also NO SETUP (no need to register for an account, setup profile, or anything) You can just start you meeting and connect better!</p>
+            </div>
+            <div class="illustration computer">
+               <div class="element background"></div>
+               <div class="element laptop levitation-3"></div>
+               <div class=system>
+                  <div class="circle index-1"></div>
+                  <div class="circle index-2"></div>
+                  <div class="circle index-3"></div>
+                  <div class="disc index-1">
+                     <div class=inner></div>
+                  </div>
+                  <div class="disc index-2">
+                     <div class=inner></div>
+                  </div>
+                  <div class="disc index-3">
+                     <div class=inner></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class=info>
+            <div class=text>
+               <h4 class=title>Things that set us appart!</h4>
+               <p class=paragraph>Now only do we have the best audio and video, security and onboarding, we also have - Virtual backrounds, Connectablility with over 500 apps (all ACO Apps), Built in note pad, recording feature, custom meeting codes, premium plans, and upto 50,000 people per meeting!!</p>
+            </div>
+            <div class="illustration astronaut">
+               <div class="element background"></div>
+               <div class="element guy levitation-3"></div>
+               <div class="element green-book levitation-2"></div>
+               <div class="element red-book levitation-1"></div>
+               <div class=system>
+                  <div class="circle index-1"></div>
+                  <div class="circle index-2"></div>
+                  <div class="circle index-3"></div>
+                  <div class="disc index-1">
+                     <div class=inner></div>
+                  </div>
+                  <div class="disc index-2">
+                     <div class=inner></div>
+                  </div>
+                  <div class="disc index-3">
+                     <div class=inner></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="section get-started" id=get-started>
+         <div class=background></div>
+         <div class=illustration>
+            <div class=center>
+               <div class="circle index-1"></div>
+               <div class="circle index-2"></div>
+               <div class="circle index-3"></div>
+               <div class="circle index-4"></div>
+               <div class="circle index-5"></div>
+               <div class="disc index-1">
+                  <div class=inner></div>
+               </div>
+               <div class="disc index-2">
+                  <div class=inner></div>
+               </div>
+               <div class="disc index-3">
+                  <div class=inner></div>
+               </div>
+               <div class="disc index-4">
+                  <div class=inner></div>
+               </div>
+               <div class="disc index-5">
+                  <div class=inner></div>
+               </div>
+            </div>
+         </div>
+         <div class=content>
+            <h3 class=main-title>Get started</h3>
+            <div class=step>
+               <div class=number>1.</div>
+               <p class="paragraph title">Go to the ACO Meet website!</p>
+               <p class=paragraph>Just click the link below!</p>
+               <p class=paragraph>In your console, run:</p>
+               <pre class=code><code>aco.cmd-open-website</code></pre>
+               <p class="paragraph small">Meet Web: <a href=https://ayaan-codes.github.io/aco-meet/join-meeting.html target=_blank>link</a>.</p>
+            </div>
+            <div class=step>
+               <div class=number>2.</div>
+               <p class="paragraph title">Enter `meeting-code` or click +Meeting</p>
+               <p class=paragraph>It should give you instuctions!</p>
+               <p class=paragraph></p>
+               <pre class=code><code>aco.cmd-follow-instructions</code></pre>
+               <p class=paragraph>Once done, you should have a meeting (or) be on the join page of the reqested meeting.</p>
+            </div>
+            <div class=step>
+               <div class=number>3.</div>
+               <p class="paragraph title">(Optional) Make an ACO Account!</p>
+               <p class=paragraph>By making an ACO Account, you will get many more perks and be able to use the same ACO Account for other ACO Apps too.</p>
+               <p class=paragraph></p>
+            </div>
+            <div class=step>
+               <div class=number>4.</div>
+               <p class="paragraph title">Connect Better!</p>
+            </div>
+         </div>
+      </section>
+      <section class="section whos-using-it" id=whos-using-it>
+         <h3 class=main-title>More...</h3>
+         <div class=text>
+            <p class=paragraph>ACO Meet is already being used by schools and companies to connect better <a href=https://number.smb.company>(Click to see live number)</a></p>
+         </div>
+         <div class=items>
+            <div class=""></div>
+         </div>
+      </section>
+      <footer class="section footer">
+         <span class=background></span> <span class=background-2></span>
+         <div class=content>
+            <div class=lists>
+               <ul class=list>
+                  <li class=title>Website</li>
+                  <li class=item><a class="underline features js-scroll-item" href=#features>Features</a></li>
+                  <li class=item><a class="underline get-started js-scroll-item" href=#get-started>Get started</a></li>
+                  <li class=item><a class="underline whos-using-it js-scroll-item" href=#whos-using-it>Learn More...</a></li>
+               </ul>
+               <ul class=list>
+                  <li class=title>Meet</li>
+                  <li class=item><a class=underline href=https://ayaan-codes.github.io/aco-meet/new-meeting.html target=_blank>New Meeting</a></li>
+                  <li class=item><a class=underline href=https://github.com/Ayaan-Codes/aco-meet/blob/main/join-meeting.html target=_blank>Join Meeting</a></li>
+                  <li class=item><a class=underline href=mailto:lazoshowaco@gmail.com>Contact us</a></li>
+               </ul>
+            </div>
+            <p class=text>ACO Meet is part of <a href=https://website.smb.company target=_blank>ACO</a> - Ayaan Company</p>
+         </div>
+      </footer>
+      <script type=text/javascript src=/keppler/static/js/manifest.6203c740028785f3f5f6.js></script><script type=text/javascript src=/keppler/static/js/app.4ecde80c8554ea4fd667.js></script>
+   </body>
+</html>
