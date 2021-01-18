@@ -6,7 +6,6 @@
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#2A3A4B">
-    <base href="https://web-cdn.jitsi.net/meetjitsi_4570.1189/" />
     <link rel="icon" 
     type="image/png" 
     href="https://i.ibb.co/cbs9ZTt/aco-meet-logo.png">
@@ -228,7 +227,7 @@ analytics: {
     websocket: 'wss://meet.jit.si/xmpp-websocket', // FIXME: use xep-0156 for that
 
 
-    clientNode: 'http://jitsi.org/jitsimeet', // The name of client node advertised in XEP-0115 'c' stanza
+    clientNode: '', // The name of client node advertised in XEP-0115 'c' stanza
     //deprecated desktop sharing settings, included only because older version of jitsi-meet require them
     desktopSharing: 'ext', // Desktop sharing method. Can be set to 'ext', 'webrtc' or false to disable.
     chromeExtensionId: 'kglhbbefdnlheedjiejgomgmfplipfeb', // Id of desktop streamer Chrome extension
@@ -318,9 +317,9 @@ feedbackPercentage: 0,
     enableInsecureRoomNameWarning: true,
     hepopAnalyticsUrl: "",
     hepopAnalyticsEvent: {
-        product: "lib-jitsi-meet",
-        subproduct: "meet-jit-si",
-        name: "jitsi.page.load.failed",
+        product: "ACO Meet",
+        subproduct: "ACO Meetings",
+        name: "page.load.failed",
         action: "page.load.failed",
         actionSubject: "page.load",
         type: "page.load.failed",
@@ -358,7 +357,7 @@ feedbackPercentage: 0,
 /* eslint sort-keys: ["error", "asc", {"caseSensitive": false}] */
 
 var interfaceConfig = {
-    APP_NAME: 'Jitsi Meet',
+    APP_NAME:'ACO',
     AUDIO_LEVEL_PRIMARY_COLOR: 'rgba(255,255,255,0.4)',
     AUDIO_LEVEL_SECONDARY_COLOR: 'rgba(255,255,255,0.2)',
 
@@ -586,22 +585,20 @@ var interfaceConfig = {
     /**
      * Specify custom URL for downloading android mobile app.
      */
-    MOBILE_DOWNLOAD_LINK_ANDROID: 'https://play.google.com/store/apps/details?id=org.jitsi.meet',
 
-    MOBILE_DOWNLOAD_LINK_F_DROID: 'https://f-droid.org/en/packages/org.jitsi.meet/',
     /**
      * Specify URL for downloading ios mobile app.
      */
-    MOBILE_DOWNLOAD_LINK_IOS: 'https://itunes.apple.com/us/app/jitsi-meet/id1165103905',
+    
 
     /**
      * Specify Firebase dynamic link properties for the mobile apps.
      */
     // MOBILE_DYNAMIC_LINK: {
-    //    APN: 'org.jitsi.meet',
+    //    APN: '',
     //    APP_CODE: 'w2atb',
     //    CUSTOM_DOMAIN: undefined,
-    //    IBI: 'com.atlassian.JitsiMeet.ios',
+    //    IBI: '',
     //    ISI: '1165103905'
     // },
 
@@ -613,7 +610,7 @@ var interfaceConfig = {
     /**
      * Specify the Android app package name.
      */
-    // ANDROID_APP_PACKAGE: 'org.jitsi.meet',
+    // ANDROID_APP_PACKAGE: '',
 
     /**
      * Override the behavior of some notifications to remain displayed until
